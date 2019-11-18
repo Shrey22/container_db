@@ -1,7 +1,8 @@
-FROM 200.0.1.1:5000/mysql
+FROM mysql:5.7
 
-ENV MYSQL_ROOT_HOST=172.17.0.1
 ENV MYSQL_ROOT_PASSWORD=manager
 ENV MYSQL_DATABASE=mean_exam.db 
+
+COPY schema.sql /docker-entrypoint-initdb.d
 
 EXPOSE 3306
